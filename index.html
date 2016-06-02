@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+
+	<title>Application</title>
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="vendor/Sweetalert/sweetalert.css">
+	
+
+	<script type="text/javascript" src="js/sweetalert/sweetalert.min.js"></script>
+	<script type="text/javascript" src="vendor/angularjs/angular.js"></script>
+	<script type="text/javascript" src="js/myApp.js"></script>
+	<script type="text/javascript" src="js/controller/MeuController.js"></script>
+
+</head>
+<body ng-controller="MeuController">
+
+<div class="container">
+	<h1>AngularJs</h1>
+
+	<h1>Tabelas</h1>
+		<table class="table table-hover table-striped table-bordered ">
+			<div class="row"> 
+			<div class="col-xs-6">
+				<form class="form-horizontal" id="meuFormulario" ng-submit="cadastrar1(pessoa)">
+					<div class="form-group">
+						<label class="control-label">Nome e Sobrenome:</label>
+						<input required ng-model="pessoa.nome" class="form-control" placeholder="Digite seu nome completo" type="text" name="">
+					</div>
+					<div class="form-group">
+						<label>E-mail:</label>
+						<input required ng-model="pessoa.email" class="form-control" placeholder="E-mail Valido" type="email" name="">
+					</div>
+					<div class="form-group">
+						<label>Telefone:</label>
+						<input required ng-model="pessoa.telefone" class="form-control" placeholder="Informe seu telefone"  type="phone" name="">
+					</div>
+					<button  
+					class="btn btn-primary pull-right"  type="submit">Cadastrar</button>
+					<div class="clearfix"></div>
+					<div ng-show="msgAlert" class="alert alert-danger">Cadastro Invalido</div>
+				</form>
+			</div>
+			<div class="col-xs-6">
+
+
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nome</th>
+					<th>Telefone</th>
+					<th>E-mail</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in dados">
+					<td>{{item.id}}</td>
+					<td>{{item.nome}}</td>
+					<td>{{item.telefone}}</td>
+					<td>{{item.email}}</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+</div>
+</body>
+</html>
